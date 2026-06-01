@@ -92,4 +92,8 @@ nohup setsid edge-playback --voice "$VOICE" --text "$TEXT" \
 BGPID=$!
 echo "$BGPID" > "$PID_FILE"
 
+# Notifica immediata: l'audio parte dopo qualche secondo (download rete),
+# così l'utente sa che la shortcut è stata registrata correttamente.
+notify-send -i media-playback-start -t 3000 "🔊 TTS" "Lettura in avvio..." 2>/dev/null
+
 echo "▶ Lettura avviata (PID: $BGPID, voce: $VOICE)"
