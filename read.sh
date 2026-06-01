@@ -24,6 +24,10 @@
 VOICE="it-IT-DiegoNeural"
 PID_FILE="/tmp/edge_tts_read.pid"
 
+# Aggiunge ~/.local/bin al PATH: necessario quando lo script è lanciato
+# tramite shortcut KDE/GNOME, che usano un ambiente minimale senza questo path.
+export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
+
 # --- Controllo dipendenze ---
 if ! command -v edge-playback &>/dev/null; then
     notify-send "TTS Error" "edge-playback non trovato. Installa con: pip install edge-tts" 2>/dev/null
